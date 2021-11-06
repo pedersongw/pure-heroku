@@ -14,17 +14,12 @@ class Rename extends React.Component {
       console.log("Couldn't reach the server");
     }
   }
-  displayState = () => {
-    console.log(this.state);
-  };
 
   render() {
     return (
       <div>
-        <h3>Press button to console.log server response</h3>
-        <button onClick={this.displayState}>
-          Verify componentDidMount GET request
-        </button>
+        <h1>{this.state.message.data}</h1>
+        <h5>Rename models, components, and title</h5>
       </div>
     );
   }
