@@ -1,12 +1,11 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+let cors = require("cors");
 require("dotenv").config();
 
-const MONGO_STRING = process.env.MONGODB_URI;
-
 mongoose
-  .connect(MONGO_STRING, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
   })
   .then(() => {
@@ -21,11 +20,15 @@ const PORT = process.env.PORT || 8000;
 
 const app = express();
 
+app.use(cors());
+
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
+
+require("./routes/router.js")(app);
 
 app.listen(PORT, function () {
   console.log(`Listening on port ${PORT}`);
