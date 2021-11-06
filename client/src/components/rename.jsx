@@ -22,8 +22,9 @@ class Rename extends React.Component {
   render() {
     return (
       <div>
+        <h3>Press button to console.log server response</h3>
         <button onClick={this.displayState}>
-          Console.log(this.state.message)
+          Verify componentDidMount GET request
         </button>
       </div>
     );
