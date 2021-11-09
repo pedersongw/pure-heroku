@@ -9,7 +9,7 @@ class Rename extends React.Component {
   async componentDidMount() {
     try {
       const url = window.location.origin;
-      const response = await axios.get(url);
+      const response = await axios.get(url + "/api");
       console.log(response, url);
       this.setState({ message: response });
     } catch {

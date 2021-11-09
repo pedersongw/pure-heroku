@@ -29,6 +29,10 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 
 require("./routes/router.js")(app);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
 app.listen(PORT, function () {
   console.log(`Listening on port ${PORT}`);
 });
