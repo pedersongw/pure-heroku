@@ -3,6 +3,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 let cors = require("cors");
 require("dotenv").config();
+const bodyParser = require("body-parser");
 
 mongoose
   .connect(process.env.MONGODB_URI, {
