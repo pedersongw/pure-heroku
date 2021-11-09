@@ -8,7 +8,9 @@ class Rename extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await axios.get("/");
+      const url = window.location.origin;
+      const response = await axios.get(url);
+      console.log(response);
       this.setState({ message: response });
     } catch {
       console.log("Couldn't reach the server");
