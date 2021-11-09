@@ -10,7 +10,7 @@ class Rename extends React.Component {
     try {
       const url = window.location.origin;
       const response = await axios.get(url);
-      console.log(response);
+      console.log(response, url);
       this.setState({ message: response });
     } catch {
       console.log("Couldn't reach the server");
