@@ -10,7 +10,7 @@ class Rename extends React.Component {
     try {
       const url = window.location.origin;
       const response = await axios.get(url + "/api");
-      console.log(response, url);
+      console.log(response);
       this.setState({ message: response });
     } catch {
       console.log("Couldn't reach the server");
@@ -18,10 +18,10 @@ class Rename extends React.Component {
   }
 
   render() {
+    const { data } = this.state.message;
     return (
       <div>
-        <h1>{this.state.message.data}</h1>
-        <h5>Rename models, components, and title</h5>
+        <h1>{data ? data : "Couldn't reach the server"}</h1>
       </div>
     );
   }
